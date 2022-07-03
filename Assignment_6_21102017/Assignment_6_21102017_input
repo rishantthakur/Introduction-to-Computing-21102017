@@ -25,12 +25,15 @@ print()
 #Question 2
 #Palindrome String
 
-def is_palindrome(n):
-    
-    new=word[::-1]
-    return word==new
-word=input()
-is_palindrome(word)
+def palindrome(s):
+    s1=""
+    s1= s[::-1]
+    return s1
+S = input("Enter a String: ")
+if(palindrome(S)==S):
+    print(S,"is a palindrome")
+else:
+        print(S,"is not a palindrome")
 print()
 print('*'*80)
 print()
@@ -76,9 +79,9 @@ def ispangram(str):
 	
 s=input("Enter a String: ")
 if(ispangram(s) == True):
-	print(f"Yes '{s}' is a panagram")
+	print(f"Yes '{s}' is a pangram")
 else:
-	print(f"No '{s}' is not a panagram")
+	print(f"No '{s}' is not a pangram")
 print()
 print('*'*80)
 print()
@@ -171,194 +174,6 @@ print()
 print('*'*80)
 print()
 
-
-
-#Question 9
-class sol:
-    def validity(self,str1):
-        accum=[]
-        parentheses={"(":")","[":"]","{":"}"}
-        for i in str1 :
-            if i in parentheses:
-                accum.append(i)
-            elif len(accum)==0 or parentheses[accum.pop()]!=i:
-                return False
-        return len(accum)==0
-print(sol().validity("((("))
-print()
-print('*'*80)
-print()#Question 1
-#Perfect Number
-
-def perfect_number(n):
-    s=0
-    for i in range(1,n):
-        if(n%i==0):
-            s+=i #Storing the sum of divisors excluding the number itself
-    if(s==n):
-        return True
-    else:
-        return False
-
-N=int(input("Enter a number: ")) #taking user's input
-if(perfect_number(N)==True):
-    print(N," is a perfect number")
-else:
-    print(N," is not a perfect number")
-print()
-print('*'*80)
-print()
-
-
-
-#Question 2
-#Palindrome String
-
-def is_palindrome(n):
-    
-    new=word[::-1]
-    return word==new
-word=input()
-is_palindrome(word)
-print()
-print('*'*80)
-print()
-
-
-#Question 3
-#Pascal's Triangle
-
-def factorial(m):
-    s=1
-    for i in range(1,m+1):
-        s*=i
-    return s
-
-def pascal(n):
-    for i in range(n):
-        for j in range(n-i+1):
-            print(end=" ")
-        for j in range(i+1):
-            #nCr=n!/(r!(n-r)!)
-            print(factorial(i)//(factorial(j)*factorial(i-j)),end=" ")
-        
-        print() #Printing new line
-N=int(input("Enter a number: "))
-pascal(N)
-print()
-print('*'*80)
-print()
-
-
-
-
-#Question 4
-# Check if the string is pangram
-
-def ispangram(str):
-	alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-	for char in alphabet:
-		if char not in str.lower():
-			return False
-
-	return True
-	
-s=input("Enter a String: ")
-if(ispangram(s) == True):
-	print(f"Yes '{s}' is a panagram")
-else:
-	print(f"No '{s}' is not a panagram")
-print()
-print('*'*80)
-print()
-
-
-
-
-#Question 5
-#Hyphen Seperated Sentence
-
-
-input_string=str(input("Enter a hyphen separated sentence: "))
-
-li=input_string.split("-") #Splitting the string into a list of strings
-li.sort() #Sorting the list using sort function
-
-print("-".join(li))
-print()
-print('*'*80)
-print()
-
-
-#Question 6
-#Student Data
-
-def student_data(student_id,**kwargs):
-    print("Student ID=",student_id)
-    if "student_name" in kwargs:
-        print("Student Name=",kwargs["student_name"])
-    if "student_class" in kwargs:
-        print("Student Class=",kwargs["student_class"])
-
-student_data(student_id="21102017")
-student_data(student_id="21102017",student_name="Rishant Thakur")
-student_data(student_id="21102017",student_name="Rishant Thakur",student_class="1st Year")
-print()
-print('*'*80)
-print()
-
-
-
-#Question 7
-
-class Student:
-    pass 
-class Marks:
-    pass 
-student1 = Student()
-marks1 = Marks()
-print(isinstance(student1, Student))
-print(isinstance(marks1, Student))
-print(isinstance(marks1, Marks)) 
-print(isinstance(student1, Marks))
-print("\nCheck whether the said classes are subclasses of the built-in object class or not.")
-print(issubclass(Student, object))
-print(issubclass(Marks, object))
-print()
-print('*'*80)
-print()
-
-
-
-#Question 8
-class solution:
-    def sumthree(self,nums):
-        nums=sorted(nums)
-        result=[]
-        i=0
-        while i < len(nums)-2 :
-            j , k = i+1 , len(nums)-1
-            while j<k:
-                if nums[i] + nums[j] + nums[k] < 0:
-                    j+=1
-                elif nums[i] + nums[j] + nums[k] >0 :
-                    k-=1
-                else :
-                    result.append([nums[i] ,nums[j] ,nums[k]])
-                    j+=1
-                    k-=1
-                    while j<k and nums[j] == nums[j -1]:
-                        j+=1
-                    while j<k and nums[k]== nums[k+1] :
-                        k-=1
-            i+=1
-            while i<len(nums)-2 and nums[i]==nums[i-1]:
-                i+=1
-        return result
-print(solution().sumthree([-25, -10, -7, -3, 2, 4, 8, 10]))
-print()
-print('*'*80)
-print()
 
 
 
